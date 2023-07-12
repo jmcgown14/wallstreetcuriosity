@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wall Street Curiosity?</title>
+  <link rel="stylesheet" href="/css/jass.css">
+    <!--<link rel="stylesheet" href="/css/style2.css" />-->
+  <link rel="stylesheet" href="/css/style.css">
+     <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- Import Materialize CSS framework -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+</head>
+
+<body>
+  <div class="flex-column justify-space-around">
+    <header class="justify-space-between align-center p-2">
+      
+      <nav class="nav-bar">
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+          <!--<a href="/stocks">stocks</a> |-->
+          <button class="no-button btn"><a href="/watchlist">WatchList</a></button> 
+          <button class="no-button btn"><a href="/stocks">Search</a></button> 
+        <button class="no-button btn" id="logout">Logout</button>
+        {{else}}
+        <button class="no-button btn"><a href="/">login</a></button>
+        {{/if}}
+      </nav>
+      <h1>
+        <span role="img" aria-label="money">📈</span>
+        <a href="/">Wall Street Curiosity?</a>
+      </h1>
+    </header>
+    <main class="container container-fluid mt-5">
+      <!-- Render the sub layout -->
+      {{{ body }}}
+    </main>
+    <footer>
+      
+    </footer>
+  </div>
+
+  <!-- Render script for logged in users only -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+  <script src="/js/stock.js"></script>
+</body>
+
+</html>

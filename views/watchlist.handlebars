@@ -1,0 +1,44 @@
+<div class='row'>
+  <div class='col-auto'>
+    <h2>Welcome, {{name}}!</h2>
+  </div>
+</div>
+
+<div class='row mt-4'>
+  <div class='col-md-8'>
+    <h3>Here is your WatchList:</h3>
+    <p>Cultivate your own watchlist of the stocks that you want to see! Click the button to search add your stocks, and get your stock info! When you want to adjust your watchlist, just click Remove Stock!</p>
+
+  {{#if stocks.length}}
+    <div class='col-md-8 project-list'>
+      <h3>Current Stocks:</h3>
+
+      {{#each stocks as |stocks|}}
+        <div class='row mb-2'>
+          <div class='col-md-8'>
+            <h4><a href='/stock/{{stocks.user_id}}'>{{stocks.symbol}}</a></h4>
+          </div>
+          <div class='col-md-4'>
+            <button
+              class='btn btn-sm btn-danger'
+              data-id='{{stocks.id}}'
+            >Remove Stock<i class='material-icons right'>delete_forever</i></button>
+      
+          </div>
+        </div>
+      {{/each}}
+      <!---button class='btn btn-info btn-block' id='remove-stock'>
+        Remove Stock<i class='material-icons right'>send</i>
+      </button>-->
+    </div>
+  {{/if}}
+      <div>
+        <button class='btn btn-info btn-block' id='add-stock'>
+          <a href='/stocks'>Search for Stocks</a>
+          <i class='material-icons right'>search</i>
+</button>
+  <br />
+      </div>
+</div>
+
+<script src='./js/watchlist.js'></script>
